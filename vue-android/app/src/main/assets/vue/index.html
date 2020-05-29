@@ -1,1 +1,35 @@
-<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>vue-wb</title><link href=./static/css/app.5786ddcc38595a99b3a3b2e1a165d1f5.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=./static/js/manifest.3ad1d5771e9b13dbdad2.js></script><script type=text/javascript src=./static/js/vendor.c397231b51d1afea579a.js></script><script type=text/javascript src=./static/js/app.ce8045244c773006e89f.js></script></body></html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script> -->
+    <script src="./static/js/jquery.min.js"></script>
+</head>
+<body>
+  <h1 id = "h1" style="text-align: center;"> 滤水机状态：  </h1>
+	<button type="button" id="button1"  style="height:45%;width:45%;font-size:50px" onclick="on()" >寮€</button>
+	<button type="button" id="button2" style="height:45%;width:45%;font-size:50px "  onclick="off()" >鍏?/button>
+ 	<button type="button" id="button3" style="height:45%;width:90%; font-size:50px"  onclick="check()" >鏇存柊鐘舵€?/button>
+<script>
+const p1 = document.getElementById('h1');
+function on(){
+     $.get("http://192.168.123.71/on",function(data,status){
+        check();
+      });
+}
+function off(){
+     $.get("http://192.168.123.71/off",function(data,status){
+        check();
+      });
+}
+function check(){
+     $.get("http://192.168.123.71/check",function(data,status){
+        if(data == "0"){
+          p1.innerHTML = "滤水机状态：关";
+        }else if(data == "1"){
+          p1.innerHTML = " 滤水机状态：开";
+        }
+      });
+}
+</script>
+</body>
+</html>
