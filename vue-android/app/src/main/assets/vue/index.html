@@ -23,6 +23,7 @@ function off(){
 }
 function check(){
      $.get("http://192.168.123.71/check",function(data,status){
+        p1.innerHTML = status;
         if(data == "0"){
           p1.innerHTML = "滤水机状态：关";
         }else if(data == "1"){
