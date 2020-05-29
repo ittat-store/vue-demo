@@ -19,16 +19,12 @@ jobs:
       run: |
        cd ./vue-android
        ./gradlew build
-       #sudo apt install tree
-       #tree
-       pwd
-       ls
        
     - name : Upload
       uses: actions/upload-artifact@master
       with:
         name: app-debug.apk
-        path: /home/runner/work/vue-demo/vue-demo/vue-android/build/outputs/apk/debug/app-debug.apk
+        path: /home/runner/work/vue-demo/vue-demo/vue-android/app/build/outputs/apk/debug/app-debug.apk
  
     - name : Upload
       uses: actions/upload-artifact@master
