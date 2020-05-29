@@ -17,16 +17,25 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mWebView = (X5WebView)findViewById(R.id.webview);
-        mWebView.setWebChromeClient(new WebChromeClient(){
-            @Override
-            public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
-                Log.i("consoleMessage", consoleMessage.message());
-                return super.onConsoleMessage(consoleMessage);
-            }
-        });
-        mWebView.getSettings();
+        // mWebView.setWebChromeClient(new WebChromeClient(){
+        //     @Override
+        //     public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
+        //         Log.i("consoleMessage", consoleMessage.message());
+        //         return super.onConsoleMessage(consoleMessage);
+        //     }
+        // });
+        // mWebView.getSettings();
         // mWebView.loadUrl("file:///android_asset/vue/index.html");
         mWebView.loadUrl("http://192.168.123.71");
     }
+
+    @Override
+    protected void onDestroy() {
+        //释放资源
+        if (mWebView != null)
+            mWebView.destroy();
+        super.onDestroy();
+    }
+
 
 }
