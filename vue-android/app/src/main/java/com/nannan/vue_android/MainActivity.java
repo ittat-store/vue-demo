@@ -25,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
         //     }
         // });
         // mWebView.getSettings();
-        // mWebView.loadUrl("file:///android_asset/vue/index.html");
-        mWebView.loadUrl("http://192.168.123.71");
+        mWebView.loadUrl("file:///android_asset/vue/index.html");
+        // mWebView.loadUrl("http://192.168.123.71");
     }
 
     @Override
