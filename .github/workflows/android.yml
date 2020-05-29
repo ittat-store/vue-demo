@@ -3,8 +3,6 @@ name: Android CI
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
 jobs:
   build:
@@ -21,5 +19,19 @@ jobs:
       run: |
        cd ./vue-android
        ./gradlew build
-       sudo apt install tree
-       tree
+       #sudo apt install tree
+       #tree
+       pwd
+       ls
+       
+    - name : Upload
+      uses: actions/upload-artifact@master
+      with:
+        name: app-debug.apk
+        path: ./app/build/outputs/apk/debug/app-debug.apk
+ 
+    - name : Upload
+      uses: actions/upload-artifact@master
+      with:
+        name: app-release-unsigned.apk
+        path: ./app/build/outputs/apk/release/app-release-unsigned.apk
